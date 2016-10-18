@@ -1,0 +1,25 @@
+group 'com.cuixingchen.spring-cloud'
+subprojects {
+    ext {
+        jdkVersion = "1.8"
+    }
+    configurations {
+        compile.exclude module: "spring-boot-starter-tomcat"
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: "idea"
+
+    repositories {
+        maven { url "http://repo.spring.io/libs-release" }
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+
+    version = '1.0-SNAPSHOT'
+}
