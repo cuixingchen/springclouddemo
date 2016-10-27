@@ -1,13 +1,7 @@
-group 'com.cuixingchen.spring-cloud'
 buildscript {
     ext {
         springBootVersion = "1.3.1.RELEASE"
-//        springCloudVersion = "Brixton.M4"
-        springCloudVersion = "Angel.SR6"
         projectName = "base"
-        version = "1.0-SNAPSHOT"
-        jdkVersion = "1.8"
-        gradleVersion = "2.9"
     }
     repositories {
         maven { url "http://repo.spring.io/libs-release" }
@@ -16,37 +10,24 @@ buildscript {
     }
     dependencies {
         classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
-//        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.0'
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
     }
-    configurations {
-//        compile.exclude module: "spring-boot-starter-tomcat"
-    }
 }
-
-apply plugin: "java"
-apply plugin: "eclipse"
-apply plugin: "idea"
 apply plugin: "maven-publish"
 apply plugin: "spring-boot"
 apply plugin: "io.spring.dependency-management"
-//apply plugin: "org.sonarqube"
 
 jar {
     baseName = "${projectName}"
     version = "${version}"
 }
 
-sourceCompatibility = "${jdkVersion}"
-targetCompatibility = "${jdkVersion}"
-
 repositories {
-    maven { url "http://repo.spring.io/libs-release" }
     maven { url "http://repo.spring.io/libs-milestone" }
-    jcenter()
-    mavenCentral()
 }
-
+//dependencyManagement 中的 dependencies 元素只表明依赖项版本的优先选择，
+// 并不影响项目的依赖项；而 dependencies 元素则影响项目的依赖项
+//只有当 外层的dependencies 元素中没有指明版本信息时， dependencyManagement 中的 dependencies 元素才起作用
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
@@ -56,5 +37,4 @@ dependencyManagement {
 dependencies {
     compile 'org.springframework.cloud:spring-cloud-starter-config'
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
 }

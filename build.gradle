@@ -1,25 +1,52 @@
-group 'com.cuixingchen.spring-cloud'
+// 所有子工程共有的配置
 subprojects {
-    ext {
-        jdkVersion = "1.8"
-    }
-    configurations {
-        compile.exclude module: "spring-boot-starter-tomcat"
-    }
 
-    apply plugin: 'java'
-    apply plugin: 'eclipse'
+
+    apply plugin: 'java' //添加 Java 插件, 表明这是一个 Java 项目
+    apply plugin: 'eclipse' //添加 Eclipse 插件, 添加 Eclipse IDE 支持, Intellij Idea 为 "idea"
     apply plugin: "idea"
 
+    group 'com.cuixingchen.spring-cloud'
+    version = '1.0-SNAPSHOT'
+
+    //全局额外属性设置
+    ext {
+        jdkVersion = "1.8"
+        sourceEncoding='UTF-8'
+        junitVersion="4.11"
+        springBootVersion = "1.3.0.RELEASE"
+//        springCloudVersion = "Brixton.M4"
+        springCloudVersion = "Angel.SR6"
+        gradleVersion = "2.10"
+    }
+
+    //指定编码格式
+    compileJava.options.encoding = 'UTF-8'
+    compileTestJava.options.encoding = 'UTF-8'
+
+    //设置jdk版本
+    sourceCompatibility = "${jdkVersion}"
+    targetCompatibility = "${jdkVersion}"
+
+    // 配置多个maven源
     repositories {
         maven { url "http://repo.spring.io/libs-release" }
         jcenter()
         mavenCentral()
     }
 
+    // 公共依赖配置
     dependencies {
-        testCompile group: 'junit', name: 'junit', version: '4.11'
+        testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
     }
 
-    version = '1.0-SNAPSHOT'
+    configurations {
+        compile.exclude module: "spring-boot-starter-tomcat"
+    }
+
+    //统一版本
+    task wrapper(type: Wrapper) {
+        gradleVersion = "${gradleVersion}"
+    }
+
 }
