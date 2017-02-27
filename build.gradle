@@ -28,6 +28,7 @@ subprojects {
 
     // 配置多个maven源
     repositories {
+        mavenLocal()
         maven { url "http://repo.spring.io/libs-release" }
         jcenter()
         mavenCentral()

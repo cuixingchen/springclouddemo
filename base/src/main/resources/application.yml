@@ -1,0 +1,16 @@
+server:
+  port: 8081
+  undertow:
+    accesslog:
+      # 开启Undertow访问日志
+      enabled: true
+      dir: /data/logs/
+
+spring:
+  data:
+    mongodb:
+      host: 10.10.20.172
+      port: 27017
+      dbname: goods
+      repositories:
+        enabled: true
