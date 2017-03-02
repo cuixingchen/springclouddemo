@@ -4,7 +4,9 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.ServerAddress;
 import com.mongodb.WriteConcern;
+import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +20,7 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
  * 
  *  通用配置类
  */
-@Configuration
+@Configuration//等价beans注解|@Bean等价于XML中配置的bean
 public class MongoDbConfig implements EnvironmentAware {
 
 	// 解析application.yml
@@ -42,7 +44,7 @@ public class MongoDbConfig implements EnvironmentAware {
 	}
 
 	//MongoDB相关
-	@Bean
+//	@Bean
 	public MongoTemplate mongoTemplate() throws Exception {
 		return new MongoTemplate(mongoDbFactory());
 	}

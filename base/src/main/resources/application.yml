@@ -9,8 +9,10 @@ server:
 spring:
   data:
     mongodb:
-      host: 10.10.20.172
+      host: 10.10.20.173
       port: 27017
       dbname: goods
+      connectTimeout: 1000
+      socketTimeout: 1000
       repositories:
-        enabled: true
+              enabled: true
