@@ -44,7 +44,7 @@ public class MongoDbConfig implements EnvironmentAware {
 	}
 
 	//MongoDB相关
-//	@Bean
+	@Bean
 	public MongoTemplate mongoTemplate() throws Exception {
 		return new MongoTemplate(mongoDbFactory());
 	}
