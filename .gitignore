@@ -4,4 +4,6 @@
 
 # IntelliJ project files
 .idea/
-bulild/
+bulild
+.gradle/
+/gradle
