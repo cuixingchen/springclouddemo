@@ -1,4 +1,4 @@
-package com.cuixingchen.springcloud.config;
+package com.cuixingchen.springcloud.config.mongo;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
