@@ -1,6 +1,5 @@
 package com.cuixingchen.springcloud.resource;
 
-import com.cuixingchen.springcloud.controller.Goods;
 import com.mongodb.MongoClientOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,28 +14,25 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Map;
 
 /**
- * Created by cuipengfei on 17-2-23.
+ * Created by cuipengfei on 17-4-14.
  */
-@Path("/user")
+@Path("/mongodemo")
 @Produces(MediaType.APPLICATION_JSON)
-public class UserResource {
+public class MongoDemoResource {
 
-    private Logger logger= LoggerFactory.getLogger(UserResource.class);
+    private Logger logger= LoggerFactory.getLogger(MongoDemoResource.class);
 
     @Autowired
     MongoTemplate mongoTemplate;
 
-    @Autowired
-    MongoClientOptions options;
-
     @GET
-    @Path("/getList")
+    @Path("/query")
     public Response getList(){
-        List<Goods> list = mongoTemplate.find(new Query(Criteria.where("goodsId").is("123")), Goods.class, "goods");
+        List<Map> list = mongoTemplate.find(new Query(Criteria.where("goodsId").is("123")),Map.class, "goods");
         logger.info("----getList----"+list);
-        logger.info("ceshi",options.getMaxConnectionIdleTime());
-        return Response.ok("成功").type(MediaType.APPLICATION_JSON).build();
+        return Response.ok("成功"+list).type(MediaType.APPLICATION_JSON).build();
     }
 }

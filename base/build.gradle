@@ -5,7 +5,7 @@ buildscript {
     }
     repositories {
         mavenLocal()
-//        maven { url "http://10.10.10.60:8081/nexus/content/groups/public" }
+        maven { url "http://10.10.10.60:8081/nexus/content/groups/public" }
         maven { url "http://repo.spring.io/libs-release" }
         jcenter()
         mavenCentral()
@@ -37,7 +37,6 @@ dependencyManagement {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-jersey'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb'

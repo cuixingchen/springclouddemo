@@ -18,6 +18,6 @@ public class JerseyConfig extends ResourceConfig{
         // 注册Resource，约定为上级目录resource下
         String packageName = JerseyConfig.class.getPackage().getName();
         // 所有resource自动扫描，不需要再依次手动添加
-        packages(packageName.substring(0, packageName.lastIndexOf(".")) + ".resource");
+        packages(packageName.substring(0, packageName.lastIndexOf(".")) + ".com.cuixingchen.springcloud.resource");
     }
 }
