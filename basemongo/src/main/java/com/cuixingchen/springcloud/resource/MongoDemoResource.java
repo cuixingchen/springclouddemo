@@ -29,8 +29,8 @@ public class MongoDemoResource {
     MongoTemplate mongoTemplate;
 
     @GET
-    @Path("/query")
-    public Response getList(){
+    @Path("/get")
+    public Response get(){
         List<Map> list = mongoTemplate.find(new Query(Criteria.where("goodsId").is("123")),Map.class, "goods");
         logger.info("----getList----"+list);
         return Response.ok("成功"+list).type(MediaType.APPLICATION_JSON).build();
