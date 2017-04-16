@@ -1,4 +1,6 @@
 rootProject.name = 'demo'
 include 'base'
 include 'basemongo'
+include 'baseconfigserver'
+include 'baseconfigclient'
 
