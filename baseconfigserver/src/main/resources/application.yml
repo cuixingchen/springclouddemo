@@ -5,3 +5,9 @@ server:
       # 开启Undertow访问日志
       enabled: true
       dir: /data/logs/
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/cuixingchen/springclouddemo/baseconfigrepo
