@@ -14,7 +14,8 @@ subprojects {
         junitVersion="4.11"
         springBootVersion = "1.5.2.RELEASE"
 //        springCloudVersion = "Brixton.M4"
-        springCloudVersion = "Angel.SR6"
+//        springCloudVersion = "Angel.SR6"
+        springCloudVersion = "Camden SR6"
         gradleVersion = "2.10"
     }
 

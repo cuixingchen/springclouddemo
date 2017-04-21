@@ -10,4 +10,5 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/cuixingchen/springclouddemo/baseconfigrepo
+          uri: https://github.com/cuixingchen/springclouddemo.git
+          searchPaths: baseconfigrepo

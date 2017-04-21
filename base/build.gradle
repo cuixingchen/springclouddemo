@@ -1,6 +1,5 @@
 buildscript {
     ext {
-        springBootVersion = "1.5.2.RELEASE"
         projectName = "base"
     }
     repositories {

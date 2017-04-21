@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = "1.5.2.RELEASE"
         projectName = "baseconfigserver"
+        springBootVersion = "1.5.2.RELEASE"
     }
     repositories {
         mavenLocal()
@@ -37,7 +37,6 @@ dependencyManagement {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-jersey'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile 'org.springframework.cloud:spring-cloud-config-server'
 }
