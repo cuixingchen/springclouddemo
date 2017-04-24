@@ -13,8 +13,6 @@ subprojects {
         sourceEncoding='UTF-8'
         junitVersion="4.11"
         springBootVersion = "1.5.2.RELEASE"
-//        springCloudVersion = "Brixton.M4"
-//        springCloudVersion = "Angel.SR6"
         springCloudVersion = "Camden SR6"
         gradleVersion = "2.10"
     }
@@ -30,6 +28,7 @@ subprojects {
     // 配置多个maven源
     repositories {
         mavenLocal()
+//        maven { url "http://10.10.10.60:8081/nexus/content/groups/public" }
         maven { url "http://repo.spring.io/libs-release" }
         jcenter()
         mavenCentral()

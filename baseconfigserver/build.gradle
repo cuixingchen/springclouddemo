@@ -1,7 +1,6 @@
 buildscript {
     ext {
         projectName = "baseconfigserver"
-        springBootVersion = "1.5.2.RELEASE"
     }
     repositories {
         mavenLocal()
