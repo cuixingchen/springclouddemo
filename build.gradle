@@ -13,7 +13,7 @@ subprojects {
         sourceEncoding='UTF-8'
         junitVersion="4.11"
         springBootVersion = "1.5.2.RELEASE"
-        springCloudVersion = "Camden SR6"
+        springCloudVersion = "Dalston.RELEASE"
         gradleVersion = "2.10"
     }
 
