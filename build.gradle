@@ -12,7 +12,7 @@ subprojects {
         jdkVersion = "1.8"
         sourceEncoding='UTF-8'
         junitVersion="4.11"
-        springBootVersion = "1.5.2.RELEASE"
+        springBootVersion = "1.5.3.RELEASE"
         springCloudVersion = "Dalston.RELEASE"
         gradleVersion = "2.10"
     }

@@ -1,3 +1,12 @@
 spring:
   application:
     name: baseconfigserver
+  cloud:
+      config:
+        server:
+          git:
+            uri: https://github.com/cuixingchen/springclouddemo/
+            searchPaths: baseconfigrepo
+            username: cuixingchen
+            password:
+        label: master

@@ -1,3 +1,10 @@
 spring:
   application:
-    name: baseconfigserver
+    name: baseconfigclient
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8083
+      label: master
+      profile: dev
