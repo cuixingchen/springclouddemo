@@ -1,0 +1,17 @@
+server:
+  port: 8085
+  undertow:
+    accesslog:
+      # 开启Undertow访问日志
+      enabled: true
+      dir: /data/logs/
+
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
