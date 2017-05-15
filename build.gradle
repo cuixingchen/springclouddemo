@@ -4,7 +4,7 @@ subprojects {
     apply plugin: 'eclipse' //添加 Eclipse 插件, 添加 Eclipse IDE 支持, Intellij Idea 为 "idea"
     apply plugin: "idea"
 
-    group 'com.cuixingchen.spring-cloud'
+    group 'com.cuixingchen.springcloud'
     version = '1.0-SNAPSHOT'
 
     //全局额外属性设置

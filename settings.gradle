@@ -3,4 +3,5 @@ include 'base'
 include 'basemongo'
 include 'baseconfigserver'
 include 'baseconfigclient'
+include 'baseeurekaserver'
 

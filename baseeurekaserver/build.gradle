@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        projectName = "basemongo"
+        projectName = "baseeurekaserver"
     }
     repositories {
         mavenLocal()
@@ -35,7 +35,6 @@ dependencyManagement {
 }
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-jersey'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
-    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    compile 'org.springframework.cloud:spring-cloud-starter-eureka-server'
 }

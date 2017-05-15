@@ -7,6 +7,6 @@ spring:
           git:
             uri: https://github.com/cuixingchen/springclouddemo/
             searchPaths: baseconfigrepo
-            username: cuixingchen
+#            username: cuixingchen
 #            password:
         label: master
