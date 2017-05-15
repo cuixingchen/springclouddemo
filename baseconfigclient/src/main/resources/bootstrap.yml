@@ -5,6 +5,7 @@ spring:
     active: dev
   cloud:
     config:
+      name: springcloud
       uri: http://localhost:8083
+      profile: ${spring.application.name}
       label: master
-      profile: dev

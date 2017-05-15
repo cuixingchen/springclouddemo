@@ -8,5 +8,5 @@ spring:
             uri: https://github.com/cuixingchen/springclouddemo/
             searchPaths: baseconfigrepo
             username: cuixingchen
-            password:
+#            password:
         label: master
