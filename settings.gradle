@@ -5,4 +5,5 @@ include 'baseconfigserver'
 include 'baseconfigclient'
 include 'baseeurekaserver'
 include 'baseeurekaclient'
+include 'basic'
 
