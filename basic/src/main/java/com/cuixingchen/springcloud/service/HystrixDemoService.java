@@ -15,7 +15,7 @@ public interface HystrixDemoService {
     String getMessage(String param);
 
 
-    String defaultMessage();
+    String defaultMessage(String param);
 
     default String getName(String name) {
         return "defalut" + name;

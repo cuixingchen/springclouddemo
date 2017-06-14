@@ -26,8 +26,8 @@ public class HystrixDemoServiceImp implements HystrixDemoService {
     }
 
     @Override
-    public String defaultMessage() {
-        return "断路器返回结果";
+    public String defaultMessage(String param) {
+        return "断路器返回结果："+param;
     }
 
 
