@@ -6,6 +6,10 @@ server:
       enabled: true
       dir: /data/logs/
 
+spring:
+  http:
+    encoding: #HttpEncodingAutoConfiguration配置编码过滤器HttpEncodingProperties
+      force: true
 
 eureka:
   client:

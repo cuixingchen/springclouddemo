@@ -1,4 +1,4 @@
-package com.cuixingchen.springcloud.config.jersey;
+package com.cuixingchen.springcloud.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
