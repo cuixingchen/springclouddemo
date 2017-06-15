@@ -7,4 +7,6 @@ include 'baseeurekaserver'
 include 'baseeurekaclient'
 include 'basic'
 include 'basezuul'
+include 'basicweb'
+include 'basewebfreemarker'
 
