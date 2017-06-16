@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created by cuipengfei on 17-6-15.
  */
 @SpringBootApplication
-public class BaseWebFreeMarkerApp {
+public class BaseWebThymeleafApp {
     public static void main(String[] args) {
-        SpringApplication.run(BaseWebFreeMarkerApp.class, args);
+        SpringApplication.run(BaseWebThymeleafApp.class, args);
     }
 }

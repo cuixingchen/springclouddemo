@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   undertow:
     accesslog:
       # 开启Undertow访问日志

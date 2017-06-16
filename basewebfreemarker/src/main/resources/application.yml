@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8087
   undertow:
     accesslog:
       # 开启Undertow访问日志
@@ -8,7 +8,7 @@ server:
 
 eureka:
   client:
-    registerWithEureka: true
+    registerWithEureka: false
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8085/eureka/

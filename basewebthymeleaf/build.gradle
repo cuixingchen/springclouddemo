@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        projectName = "basefreemarker"
+        projectName = "basewebthymeleaf"
     }
     repositories {
         mavenLocal()
@@ -36,6 +36,6 @@ dependencyManagement {
 
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
-    compile 'org.springframework.boot:spring-boot-starter-freemarker'
+//    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
 }

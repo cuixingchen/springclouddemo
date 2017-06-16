@@ -9,4 +9,5 @@ include 'basic'
 include 'basezuul'
 include 'basicweb'
 include 'basewebfreemarker'
+include 'basewebthymeleaf'
 
