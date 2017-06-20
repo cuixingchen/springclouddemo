@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: basemongo
-  http:
-    encoding: #HttpEncodingAutoConfiguration配置编码过滤器HttpEncodingProperties
-    force: true
