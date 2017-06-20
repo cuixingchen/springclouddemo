@@ -6,11 +6,7 @@ server:
       enabled: true
       dir: /data/logs/
 
-spring:
-  mvc:
-    view:
-      prefix: classpath:/resources/templates/
-      suffix: .html
+
 
 eureka:
   client:
@@ -18,3 +14,6 @@ eureka:
     fetchRegistry: true
     serviceUrl:
       defaultZone: http://localhost:8085/eureka/
+spring:
+  thymeleaf:
+    cache: false
