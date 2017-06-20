@@ -1,0 +1,19 @@
+server:
+  port: 8086
+  undertow:
+    accesslog:
+      # 开启Undertow访问日志
+      enabled: true
+      dir: /data/logs/
+
+spring:
+  data:
+    mongodb:
+#      host: 127.0.0.1
+      host: 10.10.20.172
+      port: 27017
+      database: goods
+      connectTimeout: 1000
+      socketTimeout: 1000
+      repositories:
+        enabled: true

@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        projectName = "basedatamongo"
+    }
+    repositories {
+        mavenLocal()
+        jcenter()
+        maven { url "http://repo.spring.io/libs-release" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.4.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+apply plugin: "maven-publish"
+apply plugin: "spring-boot"
+apply plugin: "io.spring.dependency-management"
+
+jar {
+    baseName = "${projectName}"
+    version = "${version}"
+}
+
+repositories {
+    maven { url "http://repo.spring.io/libs-milestone" }
+}
+//dependencyManagement 中的 dependencies 元素只表明依赖项版本的优先选择，
+// 并不影响项目的依赖项；而 dependencies 元素则影响项目的依赖项
+//只有当 外层的dependencies 元素中没有指明版本信息时， dependencyManagement 中的 dependencies 元素才起作用
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-jersey'
+    compile 'org.springframework.boot:spring-boot-starter-undertow'
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb'
+}

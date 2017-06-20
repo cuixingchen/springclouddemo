@@ -16,9 +16,9 @@ public class DemoController {
 
     private static final Logger logger = LoggerFactory.getLogger(DemoController.class);
 
-    @RequestMapping(value = "/getDemoList", method = RequestMethod.GET)
-    public String getDemoList(Model model) {
+    @RequestMapping(value = "/get", method = RequestMethod.GET)
+    public String get(Model model) {
         model.addAttribute("name","哈哈");
-        return "user/user_list";
+        return "demo/demo_list";
     }
 }

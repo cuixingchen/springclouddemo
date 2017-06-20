@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: basedatamongo
+  http:
+    encoding: #HttpEncodingAutoConfiguration配置编码过滤器HttpEncodingProperties
+    force: true
