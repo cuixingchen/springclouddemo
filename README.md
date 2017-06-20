@@ -1,2 +1,2 @@
 # springclouddemo
-spring cloud 框架搭建
+spring cloud 各组件
