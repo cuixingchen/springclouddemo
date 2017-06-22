@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: base-config-client
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: springcloud
+      uri: http://localhost:8083
+      profile: ${spring.application.name}
+      label: master
