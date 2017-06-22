@@ -6,6 +6,7 @@ server:
       enabled: true
       dir: /data/logs/
 
+
 spring:
   data:
     mongodb:
