@@ -6,8 +6,6 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import java.util.List;
 import java.util.Map;
 
@@ -16,12 +14,17 @@ import java.util.Map;
  */
 @Service
 public class UserService {
+
     @Autowired
     MongoTemplate mongoTemplate;
 
-    @GET
-    @Path("/get")
-    public List<Map> get() {
-        return mongoTemplate.find(new Query(Criteria.where("goodsId").is("123")), Map.class, "goods");
+    /**
+     * 根据用户名称查询用户集合
+     *
+     * @param userName
+     * @return
+     */
+    public List<Map> get(String userName) {
+        return mongoTemplate.find(new Query(Criteria.where("userName").is(userName)), Map.class, "user");
     }
 }
