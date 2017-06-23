@@ -1,19 +1,11 @@
 server:
-  port: 8087
+  port: 8021
   undertow:
     accesslog:
       # 开启Undertow访问日志
       enabled: true
       dir: /data/logs/
 
-
-
-eureka:
-  client:
-    registerWithEureka: false
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://localhost:8085/eureka/
 spring:
   thymeleaf:
     cache: false
