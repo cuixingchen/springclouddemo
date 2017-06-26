@@ -36,13 +36,13 @@
                 <thead>
                 <tr>
                     <th>
-                        编号
+                        用户Id
                     </th>
                     <th>
-                        产品
+                        用户名称
                     </th>
                     <th>
-                        交付时间
+                        更新时间
                     </th>
                     <th>
                         状态
@@ -50,9 +50,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                [# th:each="user : ${users}"]
                 <tr>
                     <td>
-                        1
+                        [# th:utext="${user.userName}" /]
                     </td>
                     <td>
                         TB - Monthly
@@ -64,62 +65,7 @@
                         Default
                     </td>
                 </tr>
-                <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        01/04/2012
-                    </td>
-                    <td>
-                        Approved
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        02/04/2012
-                    </td>
-                    <td>
-                        Declined
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        03/04/2012
-                    </td>
-                    <td>
-                        Pending
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        4
-                    </td>
-                    <td>
-                        TB - Monthly
-                    </td>
-                    <td>
-                        04/04/2012
-                    </td>
-                    <td>
-                        Call in to confirm
-                    </td>
-                </tr>
+                [/]
                 </tbody>
             </table>
             <nav aria-label="Page navigation">
