@@ -10,12 +10,20 @@
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css"/>
 
     <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-    <!--<link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css" />-->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-theme.min.css"/>
+
+    <!--分页css-->
+    <link href="/bootstrap/css/bootstrap-combined.min.css" rel="stylesheet"/>
 
     <!--jquery-->
     <script src="/jquery/jquery-3.2.1.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <!--分页-->
+    <script src="/bootstrap/js/bootstrap-paginator.min.js"></script>
+
     <script type="text/javascript" src="/js/user/user_list.js"></script>
 </head>
 
@@ -30,7 +38,7 @@
             </div>
             <form class="form-search">
                 <input class="input-medium search-query" type="text"/>
-                <button type="button" class="btn btn-primary">查找</button>
+                <button type="button" class="btn btn-primary" id="query">查找</button>
             </form>
             <table class="table">
                 <thead>
@@ -50,10 +58,8 @@
                 </tr>
                 </thead>
                 <tbody>
-                [# th:each="user : ${users}"]
-                <tr>
-                    <td>
-                        [# th:utext="${user.userName}" /]
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.userName}">
                     </td>
                     <td>
                         TB - Monthly
@@ -65,28 +71,9 @@
                         Default
                     </td>
                 </tr>
-                [/]
                 </tbody>
             </table>
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <div id="example"></div>
         </div>
     </div>
 </div>

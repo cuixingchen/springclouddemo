@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,10 @@ public class UserService {
      * @return
      */
     public List<Map> get(String userName) {
-        return mongoTemplate.find(new Query(Criteria.where("userName").is(userName)), Map.class, "user");
+        Query query = new Query();
+        if (!StringUtils.isEmpty(userName)) {
+            query.addCriteria(Criteria.where("userName").is(userName));
+        }
+        return mongoTemplate.find(query, Map.class, "user");
     }
 }

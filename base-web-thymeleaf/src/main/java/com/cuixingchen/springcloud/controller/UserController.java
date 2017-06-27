@@ -19,10 +19,10 @@ import java.util.Map;
  * Created by cuipengfei on 17-6-15.
  */
 @Controller
-@RequestMapping("/demo")
-public class DemoController {
+@RequestMapping("/user")
+public class UserController {
 
-    private static final Logger logger = LoggerFactory.getLogger(DemoController.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private UserFeign userFeign;
@@ -33,9 +33,9 @@ public class DemoController {
             ResponseEntity<List<Map>> result = userFeign.get(name);
             model.addAttribute("users",result.getBody());
         }catch (Exception e){
-            logger.error("demo get异常",e);
+            logger.error("user get异常",e);
         }
-        return "demo/demo_list";
+        return "user/user_list";
     }
 
     @RequestMapping(value = "/query", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
