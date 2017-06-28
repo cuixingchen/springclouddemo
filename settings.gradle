@@ -19,5 +19,5 @@ include 'base-hystrix'
 include 'base-web-freemarker'
 include 'base-web-thymeleaf'
 include 'base-zuul'
-
+include 'base-mq-rabbit'
 

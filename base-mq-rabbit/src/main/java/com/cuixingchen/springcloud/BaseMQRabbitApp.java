@@ -9,9 +9,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @SpringBootApplication
 @EnableEurekaClient
-public class BaseDataRedis {
+public class BaseMQRabbitApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(BaseDataRedis.class, args);
+        SpringApplication.run(BaseMQRabbitApp.class, args);
     }
 }
