@@ -1,0 +1,20 @@
+server:
+  port: 8011
+  undertow:
+    accesslog:
+      # 开启Undertow访问日志
+      enabled: true
+      dir: /data/logs/
+
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    writeConfig:
+      url: jdbc:mysql://10.10.20.46:3306/jyall_goods?useUnicode=true&characterEncoding=UTF-8
+      username: jyall
+      password: jyall2015
+    readConfig:
+      url: jdbc:mysql://10.10.20.46:3306/jyall_goods?useUnicode=true&characterEncoding=UTF-8
+      username: jyall
+      password: jyall2015
