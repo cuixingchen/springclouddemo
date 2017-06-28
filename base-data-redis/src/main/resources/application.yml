@@ -1,0 +1,7 @@
+server:
+  port: 8013
+  undertow:
+    accesslog:
+      # 开启Undertow访问日志
+      enabled: true
+      dir: /data/logs/

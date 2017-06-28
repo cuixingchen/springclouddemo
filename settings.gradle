@@ -12,4 +12,5 @@ include 'base-web-thymeleaf'
 include 'base-api'
 include 'base-data-mysql'
 include 'base-data-mysql'
+include 'base-data-redis'
 
