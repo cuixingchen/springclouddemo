@@ -16,12 +16,12 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableConfigurationProperties(MybatisProperties.class)
-public class MybatisDataSourceAutoConfig {
-    private static Logger log = LoggerFactory.getLogger(MybatisDataSourceAutoConfig.class);
+public class MyBatisDataSourceAutoConfig {
+    private static Logger log = LoggerFactory.getLogger(MyBatisDataSourceAutoConfig.class);
 
     private final MybatisProperties mybatisProperties;
 
-    public MybatisDataSourceAutoConfig(MybatisProperties mybatisProperties) {
+    public MyBatisDataSourceAutoConfig(MybatisProperties mybatisProperties) {
         this.mybatisProperties = mybatisProperties;
     }
 
