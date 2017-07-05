@@ -5,3 +5,9 @@ server:
       # 开启Undertow访问日志
       enabled: true
       dir: /data/logs/
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+
