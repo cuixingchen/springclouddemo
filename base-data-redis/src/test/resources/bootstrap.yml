@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: base-data-redis
+  http:
+    encoding: #HttpEncodingAutoConfiguration配置编码过滤器HttpEncodingProperties
+    force: true
+  profiles:
+    active: dev
+  cloud:
+    config:
+      name: springcloud
+      uri: http://localhost:8083
+      profile: eureka-service,${spring.application.name}
+      label: master
+      enabled: false

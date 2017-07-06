@@ -12,10 +12,11 @@ subprojects {
     ext {
         jdkVersion = "1.8"
         sourceEncoding='UTF-8'
-        junitVersion="4.11"
+        junitVersion="4.12"
         springBootVersion = "1.5.3.RELEASE"
         springCloudVersion = "Dalston.RELEASE"
         gradleVersion = "2.10"
+        fastjsonVersion="1.2.34"
     }
 
     //指定编码格式
@@ -38,6 +39,7 @@ subprojects {
     // 公共依赖配置
     dependencies {
         testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
+        testCompile 'org.springframework.boot:spring-boot-starter-test'
     }
 
     configurations {
