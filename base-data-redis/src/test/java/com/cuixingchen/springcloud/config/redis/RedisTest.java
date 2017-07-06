@@ -15,5 +15,6 @@ public class RedisTest extends BaseTest{
     @Test
     public void test(){
         redisUtil.test();
+        redisUtil.get();
     }
 }
