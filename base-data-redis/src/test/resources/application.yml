@@ -7,8 +7,8 @@ server:
       dir: /data/logs/
 spring:
   redis:
-    host: localhost
-    port: 6379
+#    host: localhost
+#    port: 6379
     database: 0
     pool:
       max-active: 8
@@ -16,7 +16,7 @@ spring:
       maxActive: 8
       max-wait: -1
     sentinel:
-      master: localhost:6379
-      nodes: localhost:6379
+      master: mymaster
+      nodes: 127.0.0.1:26379,127.0.0.1:26380,127.0.0.1:26381
 
 

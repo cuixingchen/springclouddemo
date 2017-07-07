@@ -14,25 +14,31 @@ import redis.clients.jedis.Jedis;
 @Component
 public class RedisUtil {
 
-    Logger logger= LoggerFactory.getLogger(RedisUtil.class);
+    Logger logger = LoggerFactory.getLogger(RedisUtil.class);
 
     @Autowired
-    RedisTemplate redisTemplate;
+    RedisTemplate<String,String> redisTemplate;
 
     @Autowired
     StringRedisTemplate stringRedisTemplate;
 
-    public void test(){
-        redisTemplate.opsForValue().set("key","123");
+    public void test() {
+        redisTemplate.opsForValue().set("cui", "123");
+        redisTemplate.opsForValue().set("peng", "鹏");
+        redisTemplate.opsForValue().set("fei", "飞");
+        stringRedisTemplate.opsForValue().set("state","success");
         logger.info("RedisUtil test");
     }
 
-    public void get(){
+    public void get() {
 
-        String result = stringRedisTemplate.opsForValue().get("key");
-        logger.info("redis--get："+result);
+        StringBuilder result = new StringBuilder();
+        result.append(redisTemplate.opsForValue().get("cui"));
+        result.append(stringRedisTemplate.opsForValue().get("peng"));
+        result.append(stringRedisTemplate.opsForValue().get("fei"));
+        result.append(stringRedisTemplate.opsForValue().get("state"));
+        logger.info("redis--get：" + result);
     }
-
 
 
 }
