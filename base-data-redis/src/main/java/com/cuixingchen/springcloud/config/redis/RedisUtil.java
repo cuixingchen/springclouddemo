@@ -23,9 +23,9 @@ public class RedisUtil {
     StringRedisTemplate stringRedisTemplate;
 
     public void test() {
-        redisTemplate.opsForValue().set("cui", "123");
-        redisTemplate.opsForValue().set("peng", "鹏");
-        redisTemplate.opsForValue().set("fei", "飞");
+//        redisTemplate.opsForValue().set("cui", "123");
+//        redisTemplate.opsForValue().set("peng", "鹏");
+//        redisTemplate.opsForValue().set("fei", "飞");
         stringRedisTemplate.opsForValue().set("state","success");
         logger.info("RedisUtil test");
     }
