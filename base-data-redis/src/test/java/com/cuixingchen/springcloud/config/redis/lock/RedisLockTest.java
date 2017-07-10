@@ -1,4 +1,4 @@
-package com.cuixingchen.springcloud.config.redis;
+package com.cuixingchen.springcloud.config.redis.lock;
 
 import com.cuixingchen.springcloud.BaseTest;
 import org.junit.Test;

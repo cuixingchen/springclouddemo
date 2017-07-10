@@ -1,4 +1,4 @@
-package com.cuixingchen.springcloud.config.redis;
+package com.cuixingchen.springcloud.config.redis.lock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

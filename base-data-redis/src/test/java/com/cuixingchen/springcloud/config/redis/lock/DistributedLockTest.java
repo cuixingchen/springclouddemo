@@ -1,6 +1,7 @@
-package com.cuixingchen.springcloud.config.redis;
+package com.cuixingchen.springcloud.config.redis.lock;
 
 import com.cuixingchen.springcloud.BaseTest;
+import com.cuixingchen.springcloud.config.redis.lock.DistributedLock;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,8 +67,8 @@ public class DistributedLockTest extends BaseTest {
      * 任务时间大约锁过期时间
      * 正常：获取锁逻辑正常
      * 问题1：同时有多个任务同时执行的情况
-     * 问题1：锁释放有问题，锁value一直是一样的，所以value判断没有启作用，出现误释放别人的锁
-     * 解决方案：暂无
+     * 问题1：不可重复获取，重复获取会出现误释放别人的锁
+     * 解决方案：分布式锁对象每次使用重新创建，锁过期时间要比任务时间长
      */
     @Test
     public void testTryLock2() {
