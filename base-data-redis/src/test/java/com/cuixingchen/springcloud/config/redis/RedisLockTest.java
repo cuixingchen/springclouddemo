@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.function.Supplier;
+
 /**
  * Created by cuipengfei on 17-7-9.
  */
@@ -23,8 +25,7 @@ public class RedisLockTest extends BaseTest {
      */
     @Test
     public void test() {
-        RedisLock redisLock = new RedisLock(redisTemplate, "cuipengfei");
-        testCommon(redisLock);
+        testCommon(() -> new RedisLock(redisTemplate, "cuipengfei"));
     }
 
     /**
@@ -35,14 +36,14 @@ public class RedisLockTest extends BaseTest {
      */
     @Test
     public void testExpire() {
-        RedisLock redisLock = new RedisLock(redisTemplate, "cuipengfei", 10 * 1000, 1 * 1000);
-        testCommon(redisLock);
+        testCommon(() -> new RedisLock(redisTemplate, "cuipengfei", 10 * 1000, 1 * 1000));
     }
 
-    private void testCommon(RedisLock redisLock) {
+    private void testCommon(Supplier<RedisLock> supplier) {
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 try {
+                    RedisLock redisLock = supplier.get();
                     if (redisLock.lock()) {
                         logger.info(Thread.currentThread().getName() + "线程执行中。。。。。");
                         Thread.sleep(3000);

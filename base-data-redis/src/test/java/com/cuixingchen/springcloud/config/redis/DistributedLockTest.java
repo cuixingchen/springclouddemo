@@ -26,13 +26,13 @@ public class DistributedLockTest extends BaseTest {
      */
     @Test
     public void testLock() {
-        DistributedLock distributedLock = new DistributedLock(redisTemplate, "cuipengfei", 10 * 1000);
-        testCommon(distributedLock, lockObj -> {
+        testCommon(redisTemplate, template -> {
+            DistributedLock distributedLock = new DistributedLock(template, "cuipengfei", 10 * 1000);
             try {
-                lockObj.lock(0);
+                distributedLock.lock(0);
                 logger.info(Thread.currentThread().getName() + "线程执行中。。。。。");
                 Thread.sleep(3000);
-                lockObj.unLock();
+                distributedLock.unLock();
             } catch (InterruptedException e) {
                 logger.error(Thread.currentThread().getName() + "线程异常信息：", e);
             }
@@ -44,13 +44,14 @@ public class DistributedLockTest extends BaseTest {
      */
     @Test
     public void testTryLock() {
-        DistributedLock distributedLock = new DistributedLock(redisTemplate, "cuipengfei", 10 * 1000);
-        testCommon(distributedLock, lockObj -> {
+
+        testCommon(redisTemplate, template -> {
+            DistributedLock distributedLock = new DistributedLock(template, "cuipengfei", 10 * 1000);
             try {
-                if (lockObj.tryLock()) {
+                if (distributedLock.tryLock()) {
                     logger.info(Thread.currentThread().getName() + "线程执行中。。。。。");
                     Thread.sleep(3000);
-                    lockObj.unLock();
+                    distributedLock.unLock();
                 } else {
                     logger.info(Thread.currentThread().getName() + "线程任务未执行");
                 }
@@ -70,13 +71,14 @@ public class DistributedLockTest extends BaseTest {
      */
     @Test
     public void testTryLock2() {
-        DistributedLock distributedLock = new DistributedLock(redisTemplate, "cuipengfei", 1 * 1000);
-        testCommon(distributedLock, lockObj -> {
+
+        testCommon(redisTemplate, template -> {
+            DistributedLock distributedLock = new DistributedLock(template, "cuipengfei", 1 * 1000);
             try {
-                if (lockObj.tryLock(10 * 1000, 100)) {
+                if (distributedLock.tryLock(10 * 1000, 100)) {
                     logger.info(Thread.currentThread().getName() + "线程执行中。。。。。");
                     Thread.sleep(3000);
-                    lockObj.unLock();
+                    distributedLock.unLock();
                 } else {
                     logger.info(Thread.currentThread().getName() + "线程任务未执行");
                 }
@@ -87,11 +89,11 @@ public class DistributedLockTest extends BaseTest {
         });
     }
 
-    private void testCommon(DistributedLock distributedLock, Consumer<DistributedLock> function) {
+    private void testCommon(RedisTemplate<String, String> redisTemplate, Consumer<RedisTemplate<String, String>> function) {
         for (int i = 0; i < 5; i++) {
             new Thread(() -> {
                 try {
-                    function.accept(distributedLock);
+                    function.accept(redisTemplate);
                 } catch (Exception e) {
                     logger.error(Thread.currentThread().getName() + "线程异常信息：", e);
                 }
