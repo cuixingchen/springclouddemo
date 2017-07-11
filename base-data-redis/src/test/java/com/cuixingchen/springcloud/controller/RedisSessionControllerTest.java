@@ -14,6 +14,9 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.request.WebRequest;
+
+import java.util.List;
 
 /**
  * Created by cuipengfei on 17-7-10.
@@ -47,6 +50,6 @@ public class RedisSessionControllerTest extends BaseTest {
         int statusCode = result.getResponse().getStatus();
         Assert.assertEquals(statusCode, 200);
         String body = result.getResponse().getContentAsString();
-        logger.info("********************body:" + body);
+        logger.info("********************add:" + body);
     }
 }

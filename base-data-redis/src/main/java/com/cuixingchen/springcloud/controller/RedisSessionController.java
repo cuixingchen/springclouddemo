@@ -18,10 +18,8 @@ public class RedisSessionController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     @ResponseBody
     public String add(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        session.setAttribute("login", "OK");
-        Object obj = session.getAttribute("login");
-        return obj != null ? obj.toString() : null;
+        request.getSession().setAttribute("login", "OK");
+        return "登录成功";
     }
 
     @RequestMapping(value = "/get", method = RequestMethod.GET)
