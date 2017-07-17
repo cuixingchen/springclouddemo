@@ -3,7 +3,7 @@ spring:
     name: base-data-mongo
   http:
     encoding: #HttpEncodingAutoConfiguration配置编码过滤器HttpEncodingProperties
-    force: true
+      force: true
   profiles:
     active: dev
   cloud:
