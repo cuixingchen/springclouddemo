@@ -110,8 +110,25 @@ public class UserService {
      * @return
      */
     @Transactional(propagation = Propagation.SUPPORTS)
-    public Object transational_supports() {
-        return null;
+    public Integer transational_supports(long id, String descript, String ex) {
+        UserPojo userPojo = new UserPojo();
+        userPojo.setId(id);
+        userPojo.setDescript("Propagation.SUPPORTS:" + descript);
+        Integer result = updateUser(userPojo);
+        if (!StringUtils.isEmpty(ex)) {
+            throw new RuntimeException();
+        }
+        return result;
+    }
+
+    @Transactional
+    public Integer transational_supports_helper(long id, String descript, String ex) {
+        UserPojo userPojo = new UserPojo();
+        userPojo.setUserId("userId2");
+        userPojo.setUserName("cuixingchen2");
+        userPojo.setDescript("测试账户2");
+        add(userPojo);
+        return transational_supports(id, descript, ex);
     }
 
     /**

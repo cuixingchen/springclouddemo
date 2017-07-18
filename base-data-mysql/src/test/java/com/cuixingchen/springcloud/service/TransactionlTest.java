@@ -18,19 +18,31 @@ public class TransactionlTest extends BaseTest {
     private UserService userService;
 
     @Test
-    public void not_supportedTest() {
-        UserPojo user = userService.getUserById(1L);
-        logger.info("更新前用户信息：" + user.toString());
-        userService.transational_not_supported(1L, "不支持事务");
-        UserPojo userNow = userService.getUserById(1L);
-        logger.info("更新后的用户信息：" + userNow.toString());
-    }
-
-    @Test
     public void requiredTest() {
         UserPojo user = userService.getUserById(1L);
         logger.info("更新前用户信息：" + user.toString());
         userService.transactional_required_helper(1L, "支持当前事务，如没有就新建","ex");
+        UserPojo userNow = userService.getUserById(1L);
+        logger.info("更新后的用户信息：" + userNow.toString());
+    }
+
+
+    @Test
+    public void supportedTest() {
+        UserPojo user = userService.getUserById(1L);
+        logger.info("更新前用户信息：" + user.toString());
+        userService.transational_supports_helper(1L, "支持事务","ex");
+        UserPojo userNow = userService.getUserById(1L);
+        logger.info("更新后的用户信息：" + userNow.toString());
+    }
+
+
+
+    @Test
+    public void not_supportedTest() {
+        UserPojo user = userService.getUserById(1L);
+        logger.info("更新前用户信息：" + user.toString());
+        userService.transational_not_supported(1L, "不支持事务");
         UserPojo userNow = userService.getUserById(1L);
         logger.info("更新后的用户信息：" + userNow.toString());
     }

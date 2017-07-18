@@ -11,13 +11,13 @@ spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     writeConfig:
-      url: jdbc:mysql://10.10.20.46:3306/jyall_goods?useUnicode=true&characterEncoding=UTF-8
-      username: jyall
-      password: jyall2015
+      url: jdbc:mysql://127.0.0.1:3306/goods?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
     readConfig:
-      url: jdbc:mysql://10.10.20.46:3306/jyall_goods?useUnicode=true&characterEncoding=UTF-8
-      username: jyall
-      password: jyall2015
+      url: jdbc:mysql://127.0.0.1:3306/goods?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: root
 
 
 # mybatis配置
