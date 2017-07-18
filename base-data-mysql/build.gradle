@@ -39,10 +39,14 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-undertow'
     compile 'org.springframework.cloud:spring-cloud-starter-config'
     compile 'org.springframework.cloud:spring-cloud-starter-eureka'
+    compile project(':base-api')
     // Database Config
     compile "org.springframework:spring-jdbc:4.2.3.RELEASE"
     compile "com.zaxxer:HikariCP"
     compile "mysql:mysql-connector-java"
     compile "org.mybatis:mybatis:3.3.1"
     compile "org.mybatis:mybatis-spring:1.2.4"
+
+    testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }

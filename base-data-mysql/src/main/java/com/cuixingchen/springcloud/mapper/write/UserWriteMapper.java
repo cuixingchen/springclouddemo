@@ -1,5 +1,6 @@
 package com.cuixingchen.springcloud.mapper.write;
 
+import com.cuixingchen.springcloud.api.user.UserPojo;
 import com.cuixingchen.springcloud.mapper.BaseWriteMapper;
 
 import java.util.Map;
@@ -9,5 +10,7 @@ import java.util.Map;
  */
 public interface UserWriteMapper extends BaseWriteMapper{
 
-    Integer add(Map<String,Object> user);
+    int add(UserPojo userPojo);
+
+    int update(UserPojo userPojo);
 }

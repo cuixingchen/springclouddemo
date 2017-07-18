@@ -10,7 +10,7 @@ public class UserPojo implements Serializable {
     /**
      * 主键
      */
-    private Integer id;
+    private Long id;
     /**
      * 用户编码
      */
@@ -40,11 +40,25 @@ public class UserPojo implements Serializable {
      */
     private Byte status;
 
-    public Integer getId() {
+    @Override
+    public String toString() {
+        return "UserPojo{" +
+                "id=" + id +
+                ", userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", descript='" + descript + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", state=" + state +
+                ", status=" + status +
+                '}';
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

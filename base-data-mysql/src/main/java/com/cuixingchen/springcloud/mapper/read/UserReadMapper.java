@@ -1,7 +1,10 @@
 package com.cuixingchen.springcloud.mapper.read;
 
+import com.cuixingchen.springcloud.api.user.UserPojo;
 import com.cuixingchen.springcloud.mapper.BaseReaderMapper;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -9,5 +12,7 @@ import java.util.Map;
  */
 public interface UserReadMapper extends BaseReaderMapper {
 
-    Map<String, Object> getList();
+    List<UserPojo> getList(@Param("userName") String userName);
+
+    UserPojo getUserById(@Param("id") long id);
 }

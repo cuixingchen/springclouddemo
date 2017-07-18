@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cuixingchen.springcloud.mapper.write.UserWriteMapper">
+
+    <insert id="add" parameterType="com.cuixingchen.springcloud.api.user.UserPojo">
+        INSERT INTO user_cui
+          (user_id,user_name,descript,create_time,update_time,state,status)
+           VALUES
+           (#{userId},#{userName},#{descript},#{createTime},#{updateTime},#{state},#{status})
+    </insert>
+
+    <update id="update" parameterType="com.cuixingchen.springcloud.api.user.UserPojo">
+        UPDATE user_cui
+        <set>
+            <if test="updateTime!=null">
+                update_time=#{updateTime},
+            </if>
+            <if test="userId!=null and userId!=''">
+                user_id=#{userId},
+            </if>
+            <if test="userName!=null and userName!=''">
+                user_name=#{userName},
+            </if>
+            <if test="descript!=null and descript!=''">
+                descript=#{descript}
+            </if>
+        </set>
+        WHERE id=#{id}
+    </update>
+</mapper>
