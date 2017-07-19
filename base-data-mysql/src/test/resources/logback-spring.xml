@@ -85,7 +85,7 @@
 	</logger>
 
 	<!-- the root level of logging -->
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="sysDailyRollingFile" />
 	</root>
 

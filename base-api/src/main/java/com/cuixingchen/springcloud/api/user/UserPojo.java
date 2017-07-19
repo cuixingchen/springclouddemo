@@ -12,10 +12,6 @@ public class UserPojo implements Serializable {
      */
     private Long id;
     /**
-     * 用户编码
-     */
-    private String userId;
-    /**
      * 用户名称
      */
     private String userName;
@@ -40,11 +36,18 @@ public class UserPojo implements Serializable {
      */
     private Byte status;
 
+    public UserPojo() {
+    }
+
+    public UserPojo(String userName, String descript) {
+        this.userName = userName;
+        this.descript = descript;
+    }
+
     @Override
     public String toString() {
         return "UserPojo{" +
                 "id=" + id +
-                ", userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 ", descript='" + descript + '\'' +
                 ", createTime=" + createTime +
@@ -60,14 +63,6 @@ public class UserPojo implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
     }
 
     public String getUserName() {

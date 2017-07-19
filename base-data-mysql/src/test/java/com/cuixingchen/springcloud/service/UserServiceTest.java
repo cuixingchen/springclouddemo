@@ -22,7 +22,6 @@ public class UserServiceTest extends BaseTest {
     @Test
     public void addTest() {
         UserPojo userPojo = new UserPojo();
-        userPojo.setUserId("userId1");
         userPojo.setUserName("cuixingchen");
         userPojo.setDescript("测试账户");
         userService.add(userPojo);

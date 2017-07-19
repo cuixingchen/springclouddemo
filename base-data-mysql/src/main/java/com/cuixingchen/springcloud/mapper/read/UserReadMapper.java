@@ -14,5 +14,5 @@ public interface UserReadMapper extends BaseReaderMapper {
 
     List<UserPojo> getList(@Param("userName") String userName);
 
-    UserPojo getUserById(@Param("id") long id);
+    UserPojo getUserById(@Param("id") Long id);
 }

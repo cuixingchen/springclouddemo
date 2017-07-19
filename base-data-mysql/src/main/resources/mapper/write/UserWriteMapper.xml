@@ -6,9 +6,9 @@
 
     <insert id="add" parameterType="com.cuixingchen.springcloud.api.user.UserPojo">
         INSERT INTO user_cui
-          (user_id,user_name,descript,create_time,update_time,state,status)
+          (user_name,descript,create_time,update_time,state,status)
            VALUES
-           (#{userId},#{userName},#{descript},#{createTime},#{updateTime},#{state},#{status})
+           (#{userName},#{descript},#{createTime},#{updateTime},#{state},#{status})
     </insert>
 
     <update id="update" parameterType="com.cuixingchen.springcloud.api.user.UserPojo">
@@ -16,9 +16,6 @@
         <set>
             <if test="updateTime!=null">
                 update_time=#{updateTime},
-            </if>
-            <if test="userId!=null and userId!=''">
-                user_id=#{userId},
             </if>
             <if test="userName!=null and userName!=''">
                 user_name=#{userName},

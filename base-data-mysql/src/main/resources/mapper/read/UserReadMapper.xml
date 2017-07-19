@@ -6,7 +6,6 @@
 
     <resultMap id="userPojo" type="com.cuixingchen.springcloud.api.user.UserPojo">
         <id property="id" column="id" jdbcType="BIGINT"/>
-        <result property="userId" column="user_id" jdbcType="VARCHAR"/>
         <result property="userName" column="user_name" jdbcType="VARCHAR"/>
         <result property="descript" column="descript" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
@@ -16,13 +15,13 @@
     </resultMap>
 
     <select id="getList" resultMap="userPojo">
-        SELECT id,user_id,user_name,descript,create_time,update_time,state,status
+        SELECT id,user_name,descript,create_time,update_time,state,status
           FROM user_cui
           WHERE user_name LIKE CONCAT(#{userName},'%')
     </select>
 
     <select id="getUserById" resultMap="userPojo">
-        SELECT id,user_id,user_name,descript,create_time,update_time,state,status
+        SELECT id,user_name,descript,create_time,update_time,state,status
           FROM user_cui
           WHERE id=#{id}
     </select>
