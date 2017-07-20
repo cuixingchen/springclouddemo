@@ -29,9 +29,6 @@ public class UserService {
     @Autowired
     private UserWriteMapper userWriteMapper;
 
-    @Autowired
-    private UserLogWriteMapper userLogWriteMapper;
-
     /**
      * 新增用户信息
      *
@@ -77,22 +74,6 @@ public class UserService {
         return userReadMapper.getUserById(id);
     }
 
-
-    /**
-     * http://blog.csdn.net/it_man/article/details/5074371
-     * 默认事务隔离级别
-     * 支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择
-     * @param userId
-     * @param text
-     */
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void addUserLog_required(Long userId, String text) {
-        UserLog userLog = new UserLog(text, userId);
-        userLog.setCreateTime(new Date());
-        userLog.setUpdateTime(userLog.getCreateTime());
-        userLogWriteMapper.add(userLog);
-    }
-
     /**
      * Propagation.REQUIRED隔离辅助测试方法
      *
@@ -100,12 +81,11 @@ public class UserService {
      * @param descript
      * @return
      */
-//    @Transactional(propagation = Propagation.REQUIRED)
+    @Transactional(propagation = Propagation.REQUIRED)
     public void transactional_required_helper(long id, String descript) {
         UserPojo user = new UserPojo("Propagation.REQUIRED.userName", "Propagation.REQUIRED描述");
         this.add(user);
-        this.addUserLog_required(user.getId(), user.getDescript());
-        throw new RuntimeException();
+//        this.addUserLog_required(user.getId(), user.getDescript());
     }
 
 
