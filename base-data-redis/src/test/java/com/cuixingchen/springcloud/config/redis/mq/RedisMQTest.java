@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -22,25 +24,28 @@ public class RedisMQTest extends BaseTest {
 
     @After
     public void push() {
-        RedisMQ redisMQ = new RedisMQ("cuiQueue", redisTemplate);
+        RedisMQ<String> redisMQ = new RedisMQ<>("cuiQueue", redisTemplate);
         for (int i = 0; i < 20; i++) {
-            redisMQ.push(i+"崔");
-            redisMQ.push(i+"鹏");
-            redisMQ.push(i+"飞");
+            redisMQ.push(i + "崔");
+            redisMQ.push(i + "鹏");
+            redisMQ.push(i + "飞");
         }
+        List<String> list = new ArrayList<>();
+        list.add("崔鹏飞1");
+        list.add("崔鹏飞2");
+        list.add("崔鹏飞3");
+        String[] ss = list.toArray(new String[list.size()]);
+        redisMQ.pushAll(ss);
     }
 
 
     @Test
     public void test() {
-        RedisMQ redisMQ = new RedisMQ("cuiQueue", redisTemplate);
-        Object obj;
-        while ( (obj= redisMQ.pop(1000, TimeUnit.MILLISECONDS))!=null){
-            if (obj instanceof String) {
-                logger.info("队列元素：" + obj.toString());
-            } else {
-                logger.info("no");
-            }
+        RedisMQ<String> redisMQ = new RedisMQ<>("cuiQueue", redisTemplate);
+        Object str;
+        while ((str = redisMQ.pop(1000, TimeUnit.MILLISECONDS)) != null) {
+            logger.info("队列元素类型:"+str.getClass().getName());
+            logger.info("队列元素：" + str.toString());
         }
     }
 }

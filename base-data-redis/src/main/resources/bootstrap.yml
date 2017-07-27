@@ -12,3 +12,4 @@ spring:
       uri: http://localhost:8083
       profile: eureka-service,${spring.application.name}
       label: master
+      enabled: false

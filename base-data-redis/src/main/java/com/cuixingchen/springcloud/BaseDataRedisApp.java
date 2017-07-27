@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * Created by cuipengfei on 17-6-28.
  */
 @SpringBootApplication
-@EnableEurekaClient
+//@EnableEurekaClient
 public class BaseDataRedisApp {
 
     public static void main(String[] args) {
