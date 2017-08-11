@@ -30,7 +30,7 @@ subprojects {
     // 配置多个maven源
     repositories {
         mavenLocal()
-//        maven { url "http://10.10.10.60:8081/nexus/content/groups/public" }
+        maven { url "http://10.10.10.60:8081/nexus/content/groups/public" }
         jcenter()
         maven { url "http://repo.spring.io/libs-release" }
         mavenCentral()
